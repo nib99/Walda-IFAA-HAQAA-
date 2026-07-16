@@ -1,0 +1,110 @@
+rules_version = '2';
+
+service cloud.firestore {
+
+ match /databases/{database}/documents {
+
+
+ function isAdmin() {
+   return request.auth != null
+   &&
+   get(
+    /databases/$(database)/documents/users/$(request.auth.uid)
+   ).data.role == "super_admin"
+   &&
+   get(
+    /databases/$(database)/documents/users/$(request.auth.uid)
+   ).data.active == true;
+ }
+
+
+ // Admin profiles
+ match /users/{userId} {
+
+   allow read:
+    if request.auth != null
+    &&
+    request.auth.uid == userId;
+
+   allow write:
+    if isAdmin();
+ }
+
+
+ // Products
+ match /products/{id} {
+
+   allow read:
+    if true;
+
+   allow create, update, delete:
+    if isAdmin();
+ }
+
+
+ // Gallery
+ match /gallery/{id} {
+
+   allow read:
+    if true;
+
+   allow write:
+    if isAdmin();
+ }
+
+
+ // Website CMS
+ match /content/{id} {
+
+   allow read:
+    if true;
+
+   allow write:
+    if isAdmin();
+ }
+
+
+ // Contact inquiries
+ match /inquiries/{id} {
+
+   allow create:
+    if request.resource.data.name is string
+    &&
+    request.resource.data.message is string;
+
+   allow read, update, delete:
+    if isAdmin();
+ }
+
+
+ // Testimonials
+ match /testimonials/{id} {
+
+   allow read:
+    if true;
+
+   allow write:
+    if isAdmin();
+ }
+
+
+ // FAQ
+ match /faqs/{id} {
+
+   allow read:
+    if true;
+
+   allow write:
+    if isAdmin();
+ }
+
+
+ match /{document=**} {
+
+   allow read, write:
+    if false;
+ }
+
+}
+
+}
