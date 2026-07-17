@@ -67,7 +67,12 @@ function renderShell(outlet, ctx) {
               <div class="image-preview" id="prodImagePreview">
                 <span class="upload-placeholder">📷 No image selected</span>
               </div>
-              <input type="file" id="prodImageInput" accept="image/*" capture="environment" class="file-input-hidden">
+              <input 
+  type="file" 
+  id="prodImageInput" 
+  accept="image/*" 
+  class="file-input-hidden"
+>
               <label for="prodImageInput" class="btn btn-ghost btn-sm">Choose / Take Photo</label>
               <div class="upload-progress hidden" id="prodUploadProgress"><div class="upload-progress-bar" id="prodUploadBar"></div></div>
             </div>
