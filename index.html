@@ -420,9 +420,9 @@ tailwind.config = {
       <!-- Text -->
       <div class="section-reveal">
         <div class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style="background:rgba(212,160,23,0.12);color:#D4A017;border:1px solid rgba(212,160,23,0.25)" data-i18n="about.badge">Waa'ee Keenya</div>
-        <h2 class="font-display font-bold text-3xl md:text-4xl text-white mb-6" data-i18n="about.title">IFAA HAQAA —<br><span class="gradient-text" data-i18n="about.titleSpan">Amanataa fi Gabbataa</span></h2>
-        <p class="text-green-200 leading-relaxed mb-6" data-i18n="about.p1">IFAA HAQAA komphaanii daldala qonnaa Itoophiyaa keessaa tokko yoo ta'u, Jimaa, Buna Keelloo, Biqiltoota Qonnaa, Horsiisee Bulaa fi Aksiyoona irratti xiyyeeffata. Maamiltootaaf tajaajila amantaa fi qulqulluu kennina.</p>
-        <p class="text-green-300 leading-relaxed mb-8" data-i18n="about.p2">Markaatoo Abdoo Barandaa, Finfinnee keessatti argamna. Oomisha uumamaa fi wol-qixa gatii qabu gurguruuf kutannoon hojjenna.</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl text-white mb-6" id="aboutTitle" data-i18n="about.title">IFAA HAQAA —<br><span class="gradient-text" data-i18n="about.titleSpan">Amanataa fi Gabbataa</span></h2>
+        <p class="text-green-200 leading-relaxed mb-6" id="aboutBody1" data-i18n="about.p1">IFAA HAQAA komphaanii daldala qonnaa Itoophiyaa keessaa tokko yoo ta'u, Jimaa, Buna Keelloo, Biqiltoota Qonnaa, Horsiisee Bulaa fi Aksiyoona irratti xiyyeeffata. Maamiltootaaf tajaajila amantaa fi qulqulluu kennina.</p>
+        <p class="text-green-300 leading-relaxed mb-8" id="aboutBody2" data-i18n="about.p2">Markaatoo Abdoo Barandaa, Finfinnee keessatti argamna. Oomisha uumamaa fi wol-qixa gatii qabu gurguruuf kutannoon hojjenna.</p>
         
         <div class="grid grid-cols-2 gap-4 mb-8">
           <div class="p-4 rounded-2xl border" style="background:rgba(27,67,50,0.4);border-color:rgba(212,160,23,0.15)">
@@ -466,7 +466,7 @@ tailwind.config = {
         <div class="absolute top-0 right-0 w-32 h-32 rounded-full opacity-10" style="background:#D4A017;transform:translate(30%,-30%)"></div>
         <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-6" style="background:linear-gradient(135deg,rgba(212,160,23,0.2),rgba(212,160,23,0.05));border:1px solid rgba(212,160,23,0.3)">🔭</div>
         <h3 class="font-display font-bold text-2xl text-white mb-4" data-i18n="vision.visionTitle">Hawwii Keenya</h3>
-        <p class="text-green-200 leading-relaxed" data-i18n="vision.visionText">Itoophiyaa keessatti komphaanii daldala qonnaa amantaa qabu fi beekamaa ta'uu — oomisha qulqulluu fi amantaa qabu gurguruun rakkoo biyyaa furuuf xiyyeeffanna.</p>
+        <p class="text-green-200 leading-relaxed" id="visionBody" data-i18n="vision.visionText">Itoophiyaa keessatti komphaanii daldala qonnaa amantaa qabu fi beekamaa ta'uu — oomisha qulqulluu fi amantaa qabu gurguruun rakkoo biyyaa furuuf xiyyeeffanna.</p>
         <div class="mt-6 h-0.5 gold-line"></div>
         <div class="mt-6 grid grid-cols-2 gap-3">
           <div class="flex items-center gap-2 text-sm text-green-300"><span class="text-yellow-400">✦</span> <span data-i18n="vision.v1">Sadarkaa Addunyaa</span></div>
@@ -481,7 +481,7 @@ tailwind.config = {
         <div class="absolute top-0 right-0 w-32 h-32 rounded-full opacity-10" style="background:#22c55e;transform:translate(30%,-30%)"></div>
         <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-6" style="background:linear-gradient(135deg,rgba(34,197,94,0.2),rgba(34,197,94,0.05));border:1px solid rgba(34,197,94,0.3)">🎯</div>
         <h3 class="font-display font-bold text-2xl text-white mb-4" data-i18n="vision.missionTitle">Ergama Keenya</h3>
-        <p class="text-green-200 leading-relaxed" data-i18n="vision.missionText">Maamiltootaaf oomisha qonnaa fi horsiisee uumamaa ta'e, gatii madaalawaa ta'e fi tajaajila gaarii ta'e dhiyeessuun, hawaasaa qonnaa deggeruu fi dinagdee biyyaa cimsuu.</p>
+        <p class="text-green-200 leading-relaxed" id="missionBody" data-i18n="vision.missionText">Maamiltootaaf oomisha qonnaa fi horsiisee uumamaa ta'e, gatii madaalawaa ta'e fi tajaajila gaarii ta'e dhiyeessuun, hawaasaa qonnaa deggeruu fi dinagdee biyyaa cimsuu.</p>
         <div class="mt-6 h-0.5" style="background:linear-gradient(90deg,transparent,#22c55e,transparent)"></div>
         <div class="mt-6 grid grid-cols-2 gap-3">
           <div class="flex items-center gap-2 text-sm text-green-300"><span class="text-green-400">✦</span> <span data-i18n="vision.m1">Qonnaa Deggeruu</span></div>
@@ -491,6 +491,15 @@ tailwind.config = {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ========== VALUES ========== -->
+<section id="values" class="py-20 md:py-28 relative" style="background:#0D1F12">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center section-reveal">
+    <div class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style="background:rgba(212,160,23,0.12);color:#D4A017;border:1px solid rgba(212,160,23,0.25)" data-i18n="values.badge">Duudhaalee Keenya</div>
+    <h2 class="font-display font-bold text-3xl md:text-5xl text-white mb-6" id="valuesTitle" data-i18n="values.title">Duudhaalee <span class="gradient-text">Keenya</span></h2>
+    <p class="text-green-200 leading-relaxed max-w-2xl mx-auto" id="valuesBody" data-i18n="values.body">Amanamummaa, qulqullina, fi hojmaata ifaa irratti hundaa'uun maamiltoota keenya fi hawaasa keenya tajaajilla.</p>
   </div>
 </section>
 
@@ -588,47 +597,9 @@ tailwind.config = {
       <h2 class="font-display font-bold text-3xl md:text-5xl text-white" data-i18n="gallery.title">Suuraalee <span class="gradient-text" data-i18n="gallery.titleSpan">Keenya</span></h2>
     </div>
 
-    <!-- Masonry-style grid -->
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-      <div class="gallery-img rounded-2xl overflow-hidden row-span-2 col-span-1" style="aspect-ratio:1/1.6" onclick="openLightbox(this)">
-        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1780151860/IMG-20260528-WA0001_wydzn8.jpg" alt="IFAA HAQAA" class="w-full h-full object-cover">
-      </div>
-      <div class="gallery-img rounded-2xl overflow-hidden" onclick="openLightbox(this)">
-        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1780152146/1779992920153_u98ll4.jpg" alt="Jimaa" class="w-full h-48 object-cover">
-      </div>
-      <div class="gallery-img rounded-2xl overflow-hidden" onclick="openLightbox(this)">
-        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1780152146/1779992899728_co3ka4.jpg" alt="Buna" class="w-full h-48 object-cover">
-      </div>
-      <div class="gallery-img rounded-2xl overflow-hidden" onclick="openLightbox(this)">
-        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1780152154/1779992207360_apwvw0.jpg" alt="Qonnaa" class="w-full h-48 object-cover">
-      </div>
-      <div class="gallery-img rounded-2xl overflow-hidden" onclick="openLightbox(this)">
-        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1780152141/IMG-20260528-WA0002_xfeyei.jpg" alt="IFAA HAQAA" class="w-full h-48 object-cover">
-      </div>
-      <div class="gallery-img rounded-2xl overflow-hidden md:col-span-2" onclick="openLightbox(this)">
-        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1781276684/Screenshot_20260612_174006_Lite_clptl4.jpg" alt="Screenshot" class="w-full h-48 object-cover">
-      </div>
-      <div class="gallery-img rounded-2xl overflow-hidden" onclick="openLightbox(this)">
-        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1781276684/1781275248594_msajby.jpg" alt="Horsiisee" class="w-full h-48 object-cover">
-      </div>
-      <div class="gallery-img rounded-2xl overflow-hidden" onclick="openLightbox(this)">
-        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1781276685/3e9a6c0799544c9fda09795a533fbaa6_3_rt30en.jpg" alt="Oomisha" class="w-full h-48 object-cover">
-      </div>
-      <div class="gallery-img rounded-2xl overflow-hidden" onclick="openLightbox(this)">
-        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1781276685/7b21c2fd9c1b96d4accd52a026a0f95b_2_tbielj.jpg" alt="Oomisha" class="w-full h-48 object-cover">
-      </div>
-      <div class="gallery-img rounded-2xl overflow-hidden" onclick="openLightbox(this)">
-        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1781276685/66e91b227f079ebfc6bb9e70a26116ff_5_m8lheq.jpg" alt="Oomisha" class="w-full h-48 object-cover">
-      </div>
-      <div class="gallery-img rounded-2xl overflow-hidden" onclick="openLightbox(this)">
-        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1781276684/1781275263125_m6f2p2.jpg" alt="Oomisha" class="w-full h-48 object-cover">
-      </div>
-      <div class="gallery-img rounded-2xl overflow-hidden" onclick="openLightbox(this)">
-        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1781276686/1738019515205_pkt9kc.jpg" alt="Oomisha" class="w-full h-48 object-cover">
-      </div>
-      <div class="gallery-img rounded-2xl overflow-hidden" onclick="openLightbox(this)">
-        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1781276684/FB_IMG_1768431557529_ivfefm.jpg" alt="Oomisha" class="w-full h-48 object-cover">
-      </div>
+    <!-- Dynamic grid — populated from Firestore `gallery` collection by gallery-loader in the module script below -->
+    <div id="galleryGridPublic" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+      <div class="col-span-full text-center text-green-500 text-sm py-10" id="galleryLoadingMsg">Suuraalee fe'aa jira…</div>
     </div>
   </div>
 </section>
@@ -801,6 +772,7 @@ tailwind.config = {
     <div class="text-center mb-16 section-reveal">
       <div class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style="background:rgba(212,160,23,0.12);color:#D4A017;border:1px solid rgba(212,160,23,0.25)" data-i18n="contact.badge">Quunnamtii</div>
       <h2 class="font-display font-bold text-3xl md:text-5xl text-white" data-i18n="contact.title">Nu <span class="gradient-text" data-i18n="contact.titleSpan">Quunnamaa</span></h2>
+      <p class="text-green-300 max-w-2xl mx-auto mt-4" id="contactBody" data-i18n="contact.intro">Gaaffii yookaan ergaa qabaattan, karaa armaan gadiitiin nu quunnamuu ni dandeessu.</p>
     </div>
 
     <div class="grid lg:grid-cols-2 gap-10">
@@ -989,338 +961,142 @@ tailwind.config = {
   </div>
 </div>
 
-<!-- ========== ADMIN PANEL ========== -->
-<div id="adminPanel">
-  <div class="max-w-5xl mx-auto px-4 py-8">
-    <!-- Admin Login -->
-    <div id="adminLogin" class="min-h-screen flex items-center justify-center">
-      <div class="w-full max-w-md p-8 rounded-3xl border" style="background:#132918;border-color:rgba(212,160,23,0.25)">
-        <div class="text-center mb-8">
-          <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1780151860/IMG-20260528-WA0001_wydzn8.jpg" alt="Logo" class="w-16 h-16 rounded-full object-cover mx-auto mb-4" style="border:2px solid #D4A017">
-          <div class="font-display font-bold text-2xl text-white">Admin Dashboard</div>
-          <div class="text-green-400 text-sm mt-1">IFAA HAQAA</div>
-        </div>
-        <div class="space-y-4">
-          <input type="email" id="adminEmail" placeholder="Email" class="w-full px-4 py-3 rounded-xl text-white text-sm outline-none" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)">
-          <input type="password" id="adminPass" placeholder="Password" class="w-full px-4 py-3 rounded-xl text-white text-sm outline-none" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)">
-          <button onclick="adminLogin()" class="w-full py-3 rounded-xl font-bold text-sm" style="background:linear-gradient(135deg,#D4A017,#92650a);color:#fff">Login</button>
-          <div id="adminLoginErr" class="hidden text-red-400 text-xs text-center"></div>
-        </div>
-        <button onclick="closeAdmin()" class="w-full mt-4 py-2 text-green-500 text-sm hover:text-white transition-colors">← Back to Site</button>
-      </div>
-    </div>
-
-    <!-- Admin Dashboard -->
-    <div id="adminDash" class="hidden">
-      <div class="flex items-center justify-between mb-8">
-        <div class="flex items-center gap-3">
-          <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1780151860/IMG-20260528-WA0001_wydzn8.jpg" alt="Logo" class="w-10 h-10 rounded-full object-cover" style="border:2px solid #D4A017">
-          <div class="font-display font-bold text-xl text-white">IFAA HAQAA Admin</div>
-        </div>
-        <div class="flex gap-3">
-          <button onclick="closeAdmin()" class="px-4 py-2 rounded-xl text-sm text-green-300 border border-green-800 hover:bg-green-900">← Site</button>
-          <button onclick="adminLogout()" class="px-4 py-2 rounded-xl text-sm" style="background:rgba(239,68,68,0.15);color:#fca5a5;border:1px solid rgba(239,68,68,0.3)">Logout</button>
-        </div>
-      </div>
-
-      <!-- Tabs -->
-      <div class="flex gap-2 mb-6 flex-wrap">
-        <button onclick="showAdminTab('products')" class="admin-tab px-4 py-2 rounded-xl text-sm font-medium text-white" id="tab-products" style="background:#D4A017">Products</button>
-        <button onclick="showAdminTab('vision')" class="admin-tab px-4 py-2 rounded-xl text-sm font-medium text-green-400 border border-green-800" id="tab-vision">Vision/Mission</button>
-        <button onclick="showAdminTab('faq')" class="admin-tab px-4 py-2 rounded-xl text-sm font-medium text-green-400 border border-green-800" id="tab-faq">FAQ</button>
-        <button onclick="showAdminTab('testimonials')" class="admin-tab px-4 py-2 rounded-xl text-sm font-medium text-green-400 border border-green-800" id="tab-testimonials">Testimonials</button>
-        <button onclick="showAdminTab('chatbot')" class="admin-tab px-4 py-2 rounded-xl text-sm font-medium text-green-400 border border-green-800" id="tab-chatbot">Chatbot</button>
-      </div>
-
-      <!-- Tab Content -->
-      <div id="adminTabContent">
-        <!-- Products -->
-        <div id="adminTab-products">
-          <h3 class="text-white font-bold text-lg mb-4">Manage Products</h3>
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="p-5 rounded-2xl border" style="background:#132918;border-color:rgba(212,160,23,0.2)">
-              <h4 class="text-white font-semibold mb-3">Add / Edit Product</h4>
-              <div class="space-y-3">
-                <input type="text" id="prodName" placeholder="Product Name" class="w-full px-3 py-2 rounded-xl text-white text-sm" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)">
-                <textarea id="prodDesc" rows="3" placeholder="Description..." class="w-full px-3 py-2 rounded-xl text-white text-sm resize-none" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)"></textarea>
-                <input type="url" id="prodImg" placeholder="Image URL" class="w-full px-3 py-2 rounded-xl text-white text-sm" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)">
-                <button onclick="saveProduct()" class="w-full py-2.5 rounded-xl text-sm font-semibold text-white" style="background:linear-gradient(135deg,#D4A017,#92650a)">Save Product</button>
-              </div>
-            </div>
-            <div class="p-5 rounded-2xl border" style="background:#132918;border-color:rgba(212,160,23,0.2)">
-              <h4 class="text-white font-semibold mb-3">Saved Products</h4>
-              <div id="adminProductList" class="space-y-2 text-sm text-green-300">Loading...</div>
-            </div>
-          </div>
-        </div>
-        <!-- Vision/Mission -->
-        <div id="adminTab-vision" class="hidden">
-          <h3 class="text-white font-bold text-lg mb-4">Edit Vision & Mission</h3>
-          <div class="space-y-4">
-            <div class="p-5 rounded-2xl border" style="background:#132918;border-color:rgba(212,160,23,0.2)">
-              <label class="text-green-400 text-sm block mb-2">Vision (Hawwii)</label>
-              <textarea id="adminVision" rows="4" class="w-full px-3 py-2 rounded-xl text-white text-sm resize-none" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)"></textarea>
-            </div>
-            <div class="p-5 rounded-2xl border" style="background:#132918;border-color:rgba(212,160,23,0.2)">
-              <label class="text-green-400 text-sm block mb-2">Mission (Ergama)</label>
-              <textarea id="adminMission" rows="4" class="w-full px-3 py-2 rounded-xl text-white text-sm resize-none" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)"></textarea>
-            </div>
-            <button onclick="saveVisionMission()" class="px-6 py-2.5 rounded-xl text-sm font-semibold text-white" style="background:linear-gradient(135deg,#D4A017,#92650a)">Save Changes</button>
-          </div>
-        </div>
-        <!-- FAQ -->
-        <div id="adminTab-faq" class="hidden">
-          <h3 class="text-white font-bold text-lg mb-4">Manage FAQ</h3>
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="p-5 rounded-2xl border" style="background:#132918;border-color:rgba(212,160,23,0.2)">
-              <div class="space-y-3">
-                <input type="text" id="faqQ" placeholder="Question / Gaaffii" class="w-full px-3 py-2 rounded-xl text-white text-sm" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)">
-                <textarea id="faqA" rows="3" placeholder="Answer / Deebii" class="w-full px-3 py-2 rounded-xl text-white text-sm resize-none" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)"></textarea>
-                <button onclick="saveFAQ()" class="w-full py-2.5 rounded-xl text-sm font-semibold text-white" style="background:linear-gradient(135deg,#D4A017,#92650a)">Add FAQ</button>
-              </div>
-            </div>
-            <div class="p-5 rounded-2xl border" style="background:#132918;border-color:rgba(212,160,23,0.2)">
-              <div id="adminFAQList" class="space-y-2 text-sm text-green-300">Loading...</div>
-            </div>
-          </div>
-        </div>
-        <!-- Testimonials -->
-        <div id="adminTab-testimonials" class="hidden">
-          <h3 class="text-white font-bold text-lg mb-4">Manage Testimonials</h3>
-          <div class="p-5 rounded-2xl border" style="background:#132918;border-color:rgba(212,160,23,0.2)">
-            <div class="grid md:grid-cols-2 gap-4">
-              <div class="space-y-3">
-                <input type="text" id="testName" placeholder="Name" class="w-full px-3 py-2 rounded-xl text-white text-sm" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)">
-                <input type="text" id="testCity" placeholder="City" class="w-full px-3 py-2 rounded-xl text-white text-sm" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)">
-                <textarea id="testText" rows="3" placeholder="Testimonial text..." class="w-full px-3 py-2 rounded-xl text-white text-sm resize-none" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)"></textarea>
-                <button onclick="saveTestimonial()" class="w-full py-2.5 rounded-xl text-sm font-semibold text-white" style="background:linear-gradient(135deg,#D4A017,#92650a)">Add Testimonial</button>
-              </div>
-              <div id="adminTestList" class="space-y-2 text-sm text-green-300">Loading...</div>
-            </div>
-          </div>
-        </div>
-        <!-- Chatbot -->
-        <div id="adminTab-chatbot" class="hidden">
-          <h3 class="text-white font-bold text-lg mb-4">Manage Chatbot Responses</h3>
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="p-5 rounded-2xl border" style="background:#132918;border-color:rgba(212,160,23,0.2)">
-              <div class="space-y-3">
-                <input type="text" id="botKey" placeholder="Keyword (e.g. jimaa, aksiyoon)" class="w-full px-3 py-2 rounded-xl text-white text-sm" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)">
-                <textarea id="botResp" rows="3" placeholder="Response..." class="w-full px-3 py-2 rounded-xl text-white text-sm resize-none" style="background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.2)"></textarea>
-                <button onclick="saveBotResponse()" class="w-full py-2.5 rounded-xl text-sm font-semibold text-white" style="background:linear-gradient(135deg,#D4A017,#92650a)">Save Response</button>
-              </div>
-            </div>
-            <div id="adminBotList" class="p-5 rounded-2xl border space-y-2 text-sm text-green-300" style="background:#132918;border-color:rgba(212,160,23,0.2)">Loading...</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ========== FIREBASE SDK ========== -->
+<!-- ========== FIREBASE + PUBLIC CONTENT/GALLERY LOADER ========== -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, doc, setDoc, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { getFirestore, collection, addDoc, getDocs, doc, getDoc, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
 
+// Real IFAA HAQAA Firebase project (matches js/firebase-config.js used by the admin dashboard)
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyA22wNSNIWNBrp25vGyLuB1MhhucwVwYaw",
+  authDomain: "ifaa-haqaa.firebaseapp.com",
+  projectId: "ifaa-haqaa",
+  storageBucket: "ifaa-haqaa.firebasestorage.app",
+  messagingSenderId: "638946129823",
+  appId: "1:638946129823:web:21de2e11e1068c1e4defaa"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = getAuth(app);
 
 let analyticsInstance = null;
 try { analyticsInstance = getAnalytics(app); } catch(e) {}
 
-// Expose to global scope
+// Expose to global scope for the classic <script> block below
 window._db = db;
-window._auth = auth;
-window._fbFns = { collection, addDoc, getDocs, doc, setDoc, deleteDoc, serverTimestamp, signInWithEmailAndPassword, signOut, onAuthStateChanged, logEvent };
+window._fbFns = { collection, addDoc, getDocs, doc, getDoc, query, orderBy, serverTimestamp, logEvent };
 window._analytics = analyticsInstance;
 
-// Auth state
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    document.getElementById('adminLogin').classList.add('hidden');
-    document.getElementById('adminDash').classList.remove('hidden');
-    loadAdminData();
-  } else {
-    document.getElementById('adminLogin').classList.remove('hidden');
-    document.getElementById('adminDash').classList.add('hidden');
-  }
-});
+window.trackEvent = (name, params) => {
+  try { if (analyticsInstance) logEvent(analyticsInstance, name, params); } catch(e) {}
+};
 
 // Contact form save to Firestore
 window.saveContactToFirestore = async (data) => {
   try {
-    if (!window._db) return;
-    const { collection, addDoc, serverTimestamp } = window._fbFns;
-    await addDoc(collection(window._db, 'contacts'), { ...data, timestamp: serverTimestamp() });
+    await addDoc(collection(db, 'inquiries'), {
+      name: data.name,
+      phone: data.phone || '',
+      email: data.email || '',
+      message: data.message,
+      status: 'new',
+      createdAt: serverTimestamp()
+    });
   } catch(e) { console.log('Firestore:', e); }
 };
 
-// Chat save to Firestore
+// Chat log save to Firestore
 window.saveChatToFirestore = async (msg, sender) => {
   try {
-    if (!window._db) return;
-    const { collection, addDoc, serverTimestamp } = window._fbFns;
-    await addDoc(collection(window._db, 'chats'), { message: msg, sender, timestamp: serverTimestamp() });
-  } catch(e) {}
+    await addDoc(collection(db, 'chats'), { message: msg, sender, createdAt: serverTimestamp() });
+  } catch(e) { /* non-critical, ignore */ }
 };
 
-// Admin data loaders/savers
-window.loadAdminData = async () => {
-  await Promise.all([loadProducts(), loadFAQAdmin(), loadBotResponses(), loadTestimonialsAdmin()]);
-};
+/* ---------------------------------------------------------------------
+   DYNAMIC CONTENT (About / Mission / Vision / Values / Contact)
+   Loaded once from Firestore `content/{about|mission|vision|values|contact}`.
+   Falls back to the hard-coded copy already in the HTML if a document
+   doesn't exist yet or has no text for the active language.
+   --------------------------------------------------------------------- */
+window._dynamicContent = {};
 
-window.loadProducts = async () => {
+async function loadDynamicContent() {
+  const pageIds = ['about', 'mission', 'vision', 'values', 'contact'];
   try {
-    const { collection, getDocs } = window._fbFns;
-    const snap = await getDocs(collection(window._db, 'products'));
-    const el = document.getElementById('adminProductList');
-    if (!snap.empty) {
-      el.innerHTML = snap.docs.map(d => `<div class="p-2 rounded-lg border text-xs" style="border-color:rgba(212,160,23,0.15)"><b class="text-white">${sanitize(d.data().name)}</b><button onclick="deleteAdminDoc('products','${d.id}')" class="float-right text-red-400 hover:text-red-300">✕</button><p>${sanitize(d.data().desc||'')}</p></div>`).join('');
-    } else { el.innerHTML = '<p class="text-green-600">No products yet.</p>'; }
-  } catch(e) { document.getElementById('adminProductList').innerHTML = '<p class="text-red-400 text-xs">Firebase not configured</p>'; }
-};
-
-window.saveProduct = async () => {
-  const name = sanitize(document.getElementById('prodName').value.trim());
-  const desc = sanitize(document.getElementById('prodDesc').value.trim());
-  const img = document.getElementById('prodImg').value.trim();
-  if (!name) return;
-  try {
-    const { collection, addDoc, serverTimestamp } = window._fbFns;
-    await addDoc(collection(window._db, 'products'), { name, desc, img, ts: serverTimestamp() });
-    ['prodName','prodDesc','prodImg'].forEach(id => document.getElementById(id).value='');
-    await loadProducts();
-    alert('Product saved!');
-  } catch(e) { alert('Firebase error: '+e.message); }
-};
-
-window.loadFAQAdmin = async () => {
-  try {
-    const { collection, getDocs } = window._fbFns;
-    const snap = await getDocs(collection(window._db, 'faqs'));
-    const el = document.getElementById('adminFAQList');
-    if (!snap.empty) {
-      el.innerHTML = snap.docs.map(d => `<div class="p-2 rounded-lg border text-xs" style="border-color:rgba(212,160,23,0.15)"><b class="text-white">${sanitize(d.data().q)}</b><button onclick="deleteAdminDoc('faqs','${d.id}')" class="float-right text-red-400">✕</button><p>${sanitize(d.data().a||'')}</p></div>`).join('');
-    } else { el.innerHTML = '<p class="text-green-600">No FAQs yet.</p>'; }
-  } catch(e) { document.getElementById('adminFAQList').innerHTML = '<p class="text-red-400 text-xs">Firebase not configured</p>'; }
-};
-
-window.saveFAQ = async () => {
-  const q = sanitize(document.getElementById('faqQ').value.trim());
-  const a = sanitize(document.getElementById('faqA').value.trim());
-  if (!q||!a) return;
-  try {
-    const { collection, addDoc, serverTimestamp } = window._fbFns;
-    await addDoc(collection(window._db, 'faqs'), { q, a, ts: serverTimestamp() });
-    ['faqQ','faqA'].forEach(id => document.getElementById(id).value='');
-    await loadFAQAdmin();
-  } catch(e) { alert('Firebase error: '+e.message); }
-};
-
-window.loadBotResponses = async () => {
-  try {
-    const { collection, getDocs } = window._fbFns;
-    const snap = await getDocs(collection(window._db, 'botResponses'));
-    const el = document.getElementById('adminBotList');
-    if (!snap.empty) {
-      el.innerHTML = snap.docs.map(d => `<div class="p-2 rounded-lg border text-xs" style="border-color:rgba(212,160,23,0.15)"><b class="text-white">${sanitize(d.data().keyword)}</b><button onclick="deleteAdminDoc('botResponses','${d.id}')" class="float-right text-red-400">✕</button><p>${sanitize(d.data().response||'')}</p></div>`).join('');
-    } else { el.innerHTML = '<p class="text-green-600">No responses yet.</p>'; }
-  } catch(e) { document.getElementById('adminBotList').innerHTML = '<p class="text-red-400 text-xs">Firebase not configured</p>'; }
-};
-
-window.saveBotResponse = async () => {
-  const keyword = sanitize(document.getElementById('botKey').value.trim().toLowerCase());
-  const response = sanitize(document.getElementById('botResp').value.trim());
-  if (!keyword||!response) return;
-  try {
-    const { doc, setDoc } = window._fbFns;
-    await setDoc(doc(window._db, 'botResponses', keyword), { keyword, response });
-    ['botKey','botResp'].forEach(id => document.getElementById(id).value='');
-    await loadBotResponses();
-  } catch(e) { alert('Firebase error: '+e.message); }
-};
-
-window.loadTestimonialsAdmin = async () => {
-  try {
-    const { collection, getDocs } = window._fbFns;
-    const snap = await getDocs(collection(window._db, 'testimonials'));
-    const el = document.getElementById('adminTestList');
-    if (!snap.empty) {
-      el.innerHTML = snap.docs.map(d => `<div class="p-2 rounded-lg border text-xs" style="border-color:rgba(212,160,23,0.15)"><b class="text-white">${sanitize(d.data().name)}</b> — ${sanitize(d.data().city||'')}<button onclick="deleteAdminDoc('testimonials','${d.id}')" class="float-right text-red-400">✕</button><p>${sanitize(d.data().text||'')}</p></div>`).join('');
-    } else { el.innerHTML = '<p class="text-green-600">No testimonials yet.</p>'; }
-  } catch(e) { document.getElementById('adminTestList').innerHTML = '<p class="text-red-400 text-xs">Firebase not configured</p>'; }
-};
-
-window.saveTestimonial = async () => {
-  const name = sanitize(document.getElementById('testName').value.trim());
-  const city = sanitize(document.getElementById('testCity').value.trim());
-  const text = sanitize(document.getElementById('testText').value.trim());
-  if (!name||!text) return;
-  try {
-    const { collection, addDoc, serverTimestamp } = window._fbFns;
-    await addDoc(collection(window._db, 'testimonials'), { name, city, text, ts: serverTimestamp() });
-    ['testName','testCity','testText'].forEach(id => document.getElementById(id).value='');
-    await loadTestimonialsAdmin();
-  } catch(e) { alert('Firebase error: '+e.message); }
-};
-
-window.saveVisionMission = async () => {
-  const vision = sanitize(document.getElementById('adminVision').value.trim());
-  const mission = sanitize(document.getElementById('adminMission').value.trim());
-  try {
-    const { doc, setDoc } = window._fbFns;
-    await setDoc(doc(window._db, 'settings', 'visionMission'), { vision, mission });
-    alert('Saved!');
-  } catch(e) { alert('Firebase error: '+e.message); }
-};
-
-window.deleteAdminDoc = async (col, id) => {
-  if (!confirm('Delete?')) return;
-  try {
-    const { doc, deleteDoc } = window._fbFns;
-    await deleteDoc(doc(window._db, col, id));
-    loadAdminData();
-  } catch(e) { alert('Error: '+e.message); }
-};
-
-window.adminLogin = async () => {
-  const email = document.getElementById('adminEmail').value.trim();
-  const pass = document.getElementById('adminPass').value;
-  const errEl = document.getElementById('adminLoginErr');
-  try {
-    const { signInWithEmailAndPassword } = window._fbFns;
-    await signInWithEmailAndPassword(auth, email, pass);
-    errEl.classList.add('hidden');
-  } catch(e) {
-    errEl.textContent = 'Login failed: ' + e.message;
-    errEl.classList.remove('hidden');
+    const results = await Promise.all(
+      pageIds.map((id) => getDoc(doc(db, 'content', id)))
+    );
+    results.forEach((snap, i) => {
+      window._dynamicContent[pageIds[i]] = snap.exists() ? snap.data() : null;
+    });
+  } catch (e) {
+    console.warn('[content] Could not load Firestore content, using page defaults:', e);
   }
-};
+  if (window.applyDynamicContent) window.applyDynamicContent(window.currentLang || 'om');
+}
 
-window.adminLogout = async () => {
-  const { signOut } = window._fbFns;
-  await signOut(auth);
-  closeAdmin();
-};
+/* ---------------------------------------------------------------------
+   PUBLIC GALLERY LOADER
+   Reads the `gallery` collection (same one the admin dashboard writes to
+   via Cloudinary) and renders it into #galleryGridPublic. Because deletes
+   happen in the admin dashboard, simply re-fetching on page load keeps the
+   public site in sync — nothing to do here for the delete side.
+   --------------------------------------------------------------------- */
+async function loadPublicGallery() {
+  const grid = document.getElementById('galleryGridPublic');
+  if (!grid) return;
+  try {
+    const q = query(collection(db, 'gallery'), orderBy('createdAt', 'desc'));
+    const snap = await getDocs(q);
 
-// Track analytics
-window.trackEvent = (name, params) => {
-  try { if (analyticsInstance) logEvent(analyticsInstance, name, params); } catch(e) {}
-};
+    if (snap.empty) {
+      grid.innerHTML = '<div class="col-span-full text-center text-green-600 text-sm py-10">Amma suuraan hin jiru.</div>';
+      return;
+    }
+
+    const lang = window.currentLang || 'om';
+    grid.innerHTML = snap.docs.map((d) => {
+      const v = d.data();
+      const title = (v.title && (v.title[lang] || v.title.en || v.title.om)) || '';
+      const url = v.imageUrl || v.url || '';
+      return `<div class="gallery-img rounded-2xl overflow-hidden" onclick="openLightbox(this)">
+        <img src="${url}" alt="${escapeHtml(title)}" class="w-full h-48 object-cover" loading="lazy">
+      </div>`;
+    }).join('');
+  } catch (e) {
+    console.error('[gallery] Failed to load public gallery:', e);
+    grid.innerHTML = '<div class="col-span-full text-center text-red-400 text-sm py-10">Suuraalee fe\'uu hin dandeenye.</div>';
+  }
+}
+window.loadPublicGallery = loadPublicGallery;
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.appendChild(document.createTextNode(str || ''));
+  return div.innerHTML;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadDynamicContent();
+  loadPublicGallery();
+});
 </script>
+
+<!-- ========== ADMIN PANEL (legacy in-page shortcut — full dashboard lives at /admin.html) ========== -->
+<div id="adminPanel">
+  <div class="max-w-5xl mx-auto px-4 py-8">
+    <div class="min-h-screen flex items-center justify-center text-center">
+      <div class="p-10 rounded-3xl border" style="background:#132918;border-color:rgba(212,160,23,0.25)">
+        <img src="https://res.cloudinary.com/dnleeurnm/image/upload/v1780151860/IMG-20260528-WA0001_wydzn8.jpg" alt="Logo" class="w-16 h-16 rounded-full object-cover mx-auto mb-4" style="border:2px solid #D4A017">
+        <div class="font-display font-bold text-2xl text-white mb-2">Admin Dashboard</div>
+        <p class="text-green-400 text-sm mb-6">The full content management dashboard now lives at <strong>/admin.html</strong>.</p>
+        <a href="/admin.html" class="inline-block px-6 py-3 rounded-xl font-bold text-sm" style="background:linear-gradient(135deg,#D4A017,#92650a);color:#fff">Open Admin Dashboard →</a>
+        <button onclick="closeAdmin()" class="block w-full mt-4 py-2 text-green-500 text-sm hover:text-white transition-colors">← Back to Site</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ========== MAIN JS ========== -->
 <script>
@@ -1379,6 +1155,9 @@ const translations = {
     'vision.m2': 'Maamila Eegguu',
     'vision.m3': 'Uumama Kunuunsa',
     'vision.m4': 'Hariiroo Cimsuu',
+    'values.badge': 'Duudhaalee Keenya',
+    'values.title': 'Duudhaalee Keenya',
+    'values.body': 'Amanamummaa, qulqullina, fi hojmaata ifaa irratti hundaa\'uun maamiltoota keenya fi hawaasa keenya tajaajilla.',
     'products.badge': 'Oomishaalee',
     'products.title': 'Oomishaalee ',
     'products.titleSpan': 'Keenya',
@@ -1424,6 +1203,7 @@ const translations = {
     'contact.badge': 'Quunnamtii',
     'contact.title': 'Nu ',
     'contact.titleSpan': 'Quunnamaa',
+    'contact.intro': 'Gaaffii yookaan ergaa qabaattan, karaa armaan gadiitiin nu quunnamuu ni dandeessu.',
     'contact.phone': 'Bilbila',
     'contact.email': 'Email',
     'contact.location': 'Bakka',
@@ -1490,6 +1270,9 @@ const translations = {
     'vision.m2': 'ደንበኛ አስጠብቅ',
     'vision.m3': 'ተፈጥሮን ጠብቅ',
     'vision.m4': 'ግንኙነት አጠናክር',
+    'values.badge': 'እሴቶቻችን',
+    'values.title': 'እሴቶቻችን',
+    'values.body': 'በታማኝነት፣ በጥራት እና በግልጽነት ላይ በመመስረት ደንበኞቻችንን እና ማህበረሰባችንን እናገለግላለን።',
     'products.badge': 'ምርቶች',
     'products.title': 'ምርቶቻችን',
     'products.titleSpan': '',
@@ -1535,6 +1318,7 @@ const translations = {
     'contact.badge': 'አግኙን',
     'contact.title': 'አግኙን',
     'contact.titleSpan': '',
+    'contact.intro': 'ጥያቄ ወይም መልዕክት ካለዎት ከዚህ በታች ባሉት መንገዶች ያግኙን።',
     'contact.phone': 'ስልክ',
     'contact.email': 'ኢሜይል',
     'contact.location': 'አድራሻ',
@@ -1601,6 +1385,9 @@ const translations = {
     'vision.m2': 'Customer Care',
     'vision.m3': 'Environmental Care',
     'vision.m4': 'Build Relationships',
+    'values.badge': 'Our Values',
+    'values.title': 'Our Values',
+    'values.body': 'We serve our customers and our community built on trust, quality, and transparent business practices.',
     'products.badge': 'Products',
     'products.title': 'Our ',
     'products.titleSpan': 'Products',
@@ -1646,6 +1433,7 @@ const translations = {
     'contact.badge': 'Contact',
     'contact.title': 'Contact ',
     'contact.titleSpan': 'Us',
+    'contact.intro': 'Have a question or a message? Reach us through any of the channels below.',
     'contact.phone': 'Phone',
     'contact.email': 'Email',
     'contact.location': 'Location',
@@ -1670,9 +1458,47 @@ const translations = {
 };
 
 let currentLang = 'om';
+window.currentLang = currentLang;
+
+/* ---------------------------------------------------------------------
+   Applies Firestore-sourced content over the base translations for the
+   editable pages (about/mission/vision/values/contact). Called on load
+   once content arrives, and again every time the language changes.
+   Falls back silently to whatever is already on the page (the static
+   translations object) if Firestore has no document or no text for a
+   given language yet — the site never shows an empty section.
+   --------------------------------------------------------------------- */
+window.applyDynamicContent = function(lang) {
+  const dc = window._dynamicContent || {};
+  const setText = (id, value) => {
+    if (!value) return;
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  };
+
+  if (dc.about) {
+    setText('aboutTitle', dc.about.title && dc.about.title[lang]);
+    setText('aboutBody1', dc.about.body && dc.about.body[lang]);
+    // about.p2 doesn't have a distinct Firestore field; keep the static second paragraph.
+  }
+  if (dc.mission) {
+    setText('missionBody', dc.mission.body && dc.mission.body[lang]);
+  }
+  if (dc.vision) {
+    setText('visionBody', dc.vision.body && dc.vision.body[lang]);
+  }
+  if (dc.values) {
+    setText('valuesTitle', dc.values.title && dc.values.title[lang]);
+    setText('valuesBody', dc.values.body && dc.values.body[lang]);
+  }
+  if (dc.contact) {
+    setText('contactBody', dc.contact.body && dc.contact.body[lang]);
+  }
+};
 
 function setLang(lang) {
   currentLang = lang;
+  window.currentLang = lang;
   document.getElementById('currentLang').textContent = lang.toUpperCase();
   document.getElementById('langMenu').classList.add('hidden');
   document.documentElement.lang = lang;
@@ -1685,8 +1511,14 @@ function setLang(lang) {
     }
   });
 
+  // Re-apply Firestore content on top of the base translations for this language
+  if (window.applyDynamicContent) window.applyDynamicContent(lang);
+
   // Update FAQ section
   renderFAQ();
+
+  // Re-render gallery captions in the new language
+  if (window.loadPublicGallery) window.loadPublicGallery();
   
   // Save preference
   try { localStorage.setItem('lang', lang); } catch(e) {}
@@ -1982,7 +1814,7 @@ async function submitContactForm(e) {
   }, 4000);
 }
 
-// ---- ADMIN PANEL ----
+// ---- ADMIN PANEL (legacy shortcut, redirects to /admin.html) ----
 function openAdmin() {
   document.getElementById('adminPanel').style.display = 'block';
   document.body.style.overflow = 'hidden';
@@ -1990,22 +1822,6 @@ function openAdmin() {
 function closeAdmin() {
   document.getElementById('adminPanel').style.display = 'none';
   document.body.style.overflow = '';
-}
-
-function showAdminTab(tab) {
-  document.querySelectorAll('[id^="adminTab-"]').forEach(el => el.classList.add('hidden'));
-  document.getElementById('adminTab-' + tab)?.classList.remove('hidden');
-  document.querySelectorAll('.admin-tab').forEach(btn => {
-    btn.style.background = '';
-    btn.style.color = '#4ade80';
-    btn.style.border = '1px solid #166534';
-  });
-  const active = document.getElementById('tab-' + tab);
-  if (active) {
-    active.style.background = '#D4A017';
-    active.style.color = '#fff';
-    active.style.border = 'none';
-  }
 }
 
 // ---- PRELOADER ----
