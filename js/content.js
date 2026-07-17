@@ -134,7 +134,7 @@ async function handleSave(e, ctx) {
 
   try {
     await setDoc(doc(ctx.db, ctx.COLLECTIONS.content, activePage), { title, body, updatedAt: serverTimestamp() }, { merge: true });
-    pageCache[activePage] = { title, body };
+    delete pageCache[activePage];
     ctx.showToast(`${PAGES.find((p) => p.id === activePage).label} content saved.`, "success");
   } catch (err) {
     ctx.showToast(err.message, "error");
