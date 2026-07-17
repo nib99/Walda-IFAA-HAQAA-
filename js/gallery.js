@@ -10,8 +10,8 @@
 import {
   collection, addDoc, deleteDoc, doc, getDocs, serverTimestamp, orderBy, query
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-import { uploadToCloudinary } from "./cloudinary.js";
-import { LANGS, LANG_LABELS } from "./firebase-config.js";
+import { uploadToCloudinary, deleteFromCloudinary } from "./cloudinary.js";
+import { auth, LANGS, LANG_LABELS } from "./firebase-config.js";
 
 const CATEGORIES = ["Farm", "Products", "Team", "Events", "Facilities", "Other"];
 
@@ -152,7 +152,7 @@ function renderGrid(ctx) {
   }
   grid.innerHTML = `<div class="photo-grid">${items.map((img) => `
     <div class="photo-tile">
-      <img src="${img.imageUrl}" alt="${ctx.esc(img.title?.en || img.title?.om || "")}" loading="lazy">
+      <img src="${img.url || img.imageUrl}" alt="${ctx.esc(img.title?.en || img.title?.om || "")}" loading="lazy">
       <div class="photo-tile-overlay">
         <div class="photo-tile-title">${ctx.esc(img.title?.en || img.title?.om || "Untitled")}</div>
         <div class="photo-tile-cat">${ctx.esc(img.category || "")}</div>
@@ -181,7 +181,7 @@ async function handleSave(e, outlet, ctx) {
     await addDoc(collection(ctx.db, ctx.COLLECTIONS.gallery), {
       title,
       category,
-      imageUrl: pendingUpload.url,
+      url: pendingUpload.url,
       public_id: pendingUpload.public_id,
       createdAt: serverTimestamp()
     });
@@ -199,13 +199,27 @@ async function handleSave(e, outlet, ctx) {
 }
 
 async function handleDelete(id, ctx) {
-  const ok = await ctx.confirmAction({ title: "Delete image?", message: "This will remove it from the gallery permanently.", confirmLabel: "Delete" });
+  const img = cachedImages.find((x) => x.id === id);
+  const ok = await ctx.confirmAction({
+    title: "Delete image?",
+    message: "This removes it from Cloudinary and the website permanently.",
+    confirmLabel: "Delete"
+  });
   if (!ok) return;
+
   try {
+    // 1. Delete the actual file from Cloudinary (requires a signed server call).
+    if (img?.public_id) {
+      const idToken = await auth.currentUser.getIdToken();
+      await deleteFromCloudinary(img.public_id, idToken);
+    }
+
+    // 2. Delete the Firestore record so it disappears from the admin list and the website.
     await deleteDoc(doc(ctx.db, ctx.COLLECTIONS.gallery, id));
+
     cachedImages = cachedImages.filter((x) => x.id !== id);
     renderGrid(ctx);
-    ctx.showToast("Image deleted.", "success");
+    ctx.showToast("Image deleted from Cloudinary and the website.", "success");
   } catch (err) {
     ctx.showToast(err.message, "error");
   }
