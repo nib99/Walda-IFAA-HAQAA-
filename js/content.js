@@ -14,6 +14,7 @@ const PAGES = [
   { id: "about", label: "About" },
   { id: "mission", label: "Mission" },
   { id: "vision", label: "Vision" },
+  { id: "values", label: "Values" },
   { id: "contact", label: "Contact" }
 ];
 
