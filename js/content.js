@@ -50,13 +50,31 @@ async function renderEditor(ctx) {
   const root = document.getElementById("contentEditorRoot");
   root.innerHTML = ctx.loadingState();
 
-  let data = pageCache[activePage];
-  if (!data) {
-    try {
-      const snap = await getDoc(doc(ctx.db, ctx.COLLECTIONS.content, activePage));
-      data = snap.exists() ? snap.data() : { title: {}, body: {} };
-      pageCache[activePage] = data;
-    } catch (err) {
+  let data = {
+  title: {},
+  body: {}
+};
+
+try {
+
+  const snap = await getDoc(
+    doc(ctx.db, ctx.COLLECTIONS.content, activePage)
+  );
+
+  if (snap.exists()) {
+    data = snap.data();
+  }
+
+} catch (err) {
+
+  root.innerHTML = ctx.emptyState(
+    "⚠",
+    "Couldn't load content",
+    err.message
+  );
+
+  return;
+}
       root.innerHTML = ctx.emptyState("⚠", "Couldn't load content", err.message);
       return;
     }
