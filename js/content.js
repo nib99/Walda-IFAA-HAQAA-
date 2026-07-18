@@ -53,8 +53,20 @@ async function renderEditor(ctx) {
   let data = pageCache[activePage];
   if (!data) {
     try {
-      const snap = await getDoc(doc(ctx.db, ctx.COLLECTIONS.content, activePage));
-      data = snap.exists() ? snap.data() : { title: {}, body: {} };
+      const docRef = doc(ctx.db, ctx.COLLECTIONS.content, activePage);
+const snap = await getDoc(docRef);
+
+console.log("Active page:", activePage);
+console.log("Document path:", docRef.path);
+console.log("Document exists:", snap.exists());
+
+if (snap.exists()) {
+  console.log("Data:", snap.data());
+  data = snap.data();
+} else {
+  console.warn("Document does not exist:", activePage);
+  data = { title: {}, body: {} };
+}
       pageCache[activePage] = data;
     } catch (err) {
       root.innerHTML = ctx.emptyState("⚠", "Couldn't load content", err.message);
