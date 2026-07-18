@@ -50,31 +50,13 @@ async function renderEditor(ctx) {
   const root = document.getElementById("contentEditorRoot");
   root.innerHTML = ctx.loadingState();
 
-  let data = {
-  title: {},
-  body: {}
-};
-
-try {
-
-  const snap = await getDoc(
-    doc(ctx.db, ctx.COLLECTIONS.content, activePage)
-  );
-
-  if (snap.exists()) {
-    data = snap.data();
-  }
-
-} catch (err) {
-
-  root.innerHTML = ctx.emptyState(
-    "⚠",
-    "Couldn't load content",
-    err.message
-  );
-
-  return;
-}
+  let data = pageCache[activePage];
+  if (!data) {
+    try {
+      const snap = await getDoc(doc(ctx.db, ctx.COLLECTIONS.content, activePage));
+      data = snap.exists() ? snap.data() : { title: {}, body: {} };
+      pageCache[activePage] = data;
+    } catch (err) {
       root.innerHTML = ctx.emptyState("⚠", "Couldn't load content", err.message);
       return;
     }
@@ -134,7 +116,7 @@ async function handleSave(e, ctx) {
 
   try {
     await setDoc(doc(ctx.db, ctx.COLLECTIONS.content, activePage), { title, body, updatedAt: serverTimestamp() }, { merge: true });
-    delete pageCache[activePage];
+    pageCache[activePage] = { title, body };
     ctx.showToast(`${PAGES.find((p) => p.id === activePage).label} content saved.`, "success");
   } catch (err) {
     ctx.showToast(err.message, "error");
